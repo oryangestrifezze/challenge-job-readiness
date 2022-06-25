@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".ProductDetailItem">
+
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center">
+
+         <ImageView
+             android:id="@+id/image"
+             android:layout_width="match_parent"
+             android:layout_height="200dp"
+             android:layout_marginBottom="10dp"
+             android:adjustViewBounds="true"
+             android:contentDescription="@null"
+             android:scaleType="centerCrop"
+             android:src="@drawable/image_mock_1"/>
+
+         <TextView
+             android:id="@+id/description"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             style="@style/TextAppearance.AppCompat.Body1"
+             android:text="Lorem ipsum dolor sit amet, coznsectetur adipiscing elit. Aenean nec quam orci. Sed sagittis volutpat varius. Suspendisse lobortis mauris id ultrices dictum. Quisque lobortis posuere auctor. Nullam congue, magna ut imperdiet sagittis, mi sapien ullamcorper augue, id bibendum nisi libero nec arcu. Quisque aliquet feugiat est, eu semper nulla semper et. Donec at lorem sagittis, ullamcorper purus vel, suscipit metus. Duis a metus eget ex euismod placerat. Ut eleifend non nunc eget egestas. Maecenas ac massa vehicula, elementum quam ut, tempor lectus"
+             android:layout_marginStart="10dp"
+             android:layout_marginEnd="10dp"
+             android:layout_marginBottom="10dp"
+             android:layout_below="@+id/image"
+             tools:ignore="HardcodedText"
+             />
+
+     </RelativeLayout>
+
+</ScrollView>
