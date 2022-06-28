@@ -10,9 +10,9 @@ interface IGetServices {
     @GET("sites/MLB/domain_discovery/search?limit=1&q=Game")
     suspend fun fetchCategory() : List<CategoryResponse>
 
-    @GET("https://api.mercadolibre.com/highlights/MLB/category/MLB1144")
-    suspend fun fetchIdCategory() : List<CategoryIdResponse>
-
-    @GET("https://api.mercadolibre.com/sites/MLB/search?category=MLB1094")
+    @GET("sites/MLB/search?category=MLB1094")
     suspend fun fetchHighlightsResponse() : List<HighlightsResponse>
+
+    @GET("items?ids=MLB1482764536,MLB1482764536#options")
+    suspend fun fetchIdCategory() : List<CategoryIdResponse>
 }
