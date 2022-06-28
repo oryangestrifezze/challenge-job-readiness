@@ -22,5 +22,14 @@ class MainActivity : AppCompatActivity() {
 
         viewmodel.getCategory()
 
+        viewmodel.highlightsResponseList.observe(this) {
+            Log.d("TESTE HIGHLIGHT", it.content.toString())
+        }
+        viewmodel.getHighlights()
+
+        viewmodel.categoryIdList.observe(this) {
+            Log.d("TESTE ITENS HIGHLIGHT", it[0].body.title)
+        }
+        viewmodel.getCategoryId()
     }
 }
