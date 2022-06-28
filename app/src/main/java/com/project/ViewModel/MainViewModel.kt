@@ -13,7 +13,7 @@ class MainViewModel : ViewModel() {
 
     val repository = MainRepository()
 
-    val categoryResponse = MutableLiveData<CategoryResponse>()
+    val categoryResponse = MutableLiveData<List<CategoryResponse>>()
     val categoryIdList = MutableLiveData<List<CategoryIdResponse>>()
     val highlightsResponseList = MutableLiveData<List<HighlightsResponse>>()
 

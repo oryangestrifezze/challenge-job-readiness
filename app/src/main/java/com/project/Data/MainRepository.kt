@@ -9,7 +9,7 @@ import com.project.Model.HighlightsResponse
 class MainRepository {
     private val service : IGetServices = RetrofitServices.createGetService()
 
-    suspend fun getCategory() : CategoryResponse {
+    suspend fun getCategory() : List<CategoryResponse> {
         return service.fetchCategory()
     }
 
