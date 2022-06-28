@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         viewmodel.getHighlights()
 
         viewmodel.categoryIdList.observe(this) {
-            Log.d("TESTE ITENS HIGHLIGHT", it[0].body.title)
+            Log.d("TESTE ITENS HIGHLIGHT", it[0].body.title.toString())
         }
         viewmodel.getCategoryId()
     }
