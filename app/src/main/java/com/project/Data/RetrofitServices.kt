@@ -9,13 +9,8 @@ class RetrofitServices {
 
     companion object {
 
-        private val interceptor = HttpLoggingInterceptor().apply {
-            setLevel(HttpLoggingInterceptor.Level.BODY)
-        }
-
         private  val client = OkHttpClient.Builder().apply {
             addInterceptor(InterceptorAuth())
-            addInterceptor(interceptor)
         }.build()
 
         private  lateinit var  INSTANCE : Retrofit
