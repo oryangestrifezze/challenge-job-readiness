@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.Model.ItemModel
 import com.project.ViewModel.MainViewModel
@@ -46,6 +47,6 @@ class ProductList : Fragment() {
     }
 
     private fun adapterOnClick(item: ItemModel) {
-        Log.d("item clicado na Produc list", item.title.toString())
+        findNavController().navigate(R.id.action_productList_to_productDetailItem)
     }
 }

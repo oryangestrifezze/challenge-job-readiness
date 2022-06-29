@@ -17,11 +17,6 @@ class ProductAdapter(val clickedItem : (item: ItemModel) -> Unit) : RecyclerView
         notifyDataSetChanged()
     }
 
-    fun interface onClick {
-        fun itemClicked(item : ItemModel)
-    }
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductAdapterViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ProdutcItemBinding.inflate(inflater, parent, false)
@@ -39,7 +34,6 @@ class ProductAdapter(val clickedItem : (item: ItemModel) -> Unit) : RecyclerView
     inner class ProductAdapterViewHolder( val binding: ProdutcItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item : ItemModel) {
-            //TODO: aqui continuar colocando valores do item
             binding.textTitle.text = item.title
             binding.textPrice.text = "R$ ${item.price}"
 
@@ -47,9 +41,6 @@ class ProductAdapter(val clickedItem : (item: ItemModel) -> Unit) : RecyclerView
                .load(item.secure_thumbnail).into(binding.imageItem)
 
             binding.root.setOnClickListener {
-                //TODO: retirar o teste de log
-                //Log.d("Item Clicado", item.title.toString())
-
                 clickedItem(item)
             }
         }
