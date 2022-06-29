@@ -16,7 +16,8 @@ class MainRepository {
 
         try {
            service.fetchCategory(search)[0].let {
-                list = getHighlights(it.category_id.toString()).content?.filter { it.type == "ITEM" }?.map { it.id }
+                list = getHighlights(it.category_id.toString())
+                    .content?.filter { it.type == "ITEM" }?.map { it.id }
                 listResult = getCategoryId(list?.joinToString()!!).map { it.body }
             }
         } catch (e :Exception) {

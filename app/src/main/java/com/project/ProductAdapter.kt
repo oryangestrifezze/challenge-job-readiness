@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.project.Model.ItemModel
 import com.project.databinding.ProdutcItemBinding
+import com.squareup.picasso.Picasso
 
 
 class ProductAdapter(val clickedItem : (item: ItemModel) -> Unit) : RecyclerView.Adapter<ProductAdapter.ProductAdapterViewHolder>() {
@@ -40,7 +41,10 @@ class ProductAdapter(val clickedItem : (item: ItemModel) -> Unit) : RecyclerView
         fun bind(item : ItemModel) {
             //TODO: aqui continuar colocando valores do item
             binding.textTitle.text = item.title
-            binding.textPrice.text = item.price
+            binding.textPrice.text = "R$ ${item.price}"
+
+           Picasso.Builder(binding.root.context).build()
+               .load(item.secure_thumbnail).into(binding.imageItem)
 
             binding.root.setOnClickListener {
                 //TODO: retirar o teste de log

@@ -30,14 +30,12 @@ class ProductList : Fragment() {
         binding.recyclerViewList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.recyclerViewList.adapter = adapter
 
-        viewmodel._itemModelList.observe(this, {
+        viewmodel._itemModelList.observe(this) {
+            binding.notFound.visibility = if(it.isEmpty()) View.VISIBLE else View.GONE
             adapter.listItems = it
-        })
+        }
 
-        viewmodel.getCategory("Game")
-
-
-
+        viewmodel.getCategory("Violoncelo")
     }
 
     override fun onCreateView(
