@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,13 +41,15 @@ class ProductList : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return binding.root
     }
 
     private fun adapterOnClick(item: ItemModel) {
-        findNavController().navigate(R.id.action_productList_to_productDetailItem)
+        findNavController().navigate(R.id.action_productList_to_productDetailItem,
+            bundleOf("title" to item.title, "price" to item.price, "image" to item.secure_thumbnail))
     }
 }

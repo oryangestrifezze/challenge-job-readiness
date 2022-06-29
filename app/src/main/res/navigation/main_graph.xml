@@ -11,7 +11,11 @@
         tools:layout="@layout/fragment_product_list" >
         <action
             android:id="@+id/action_productList_to_productDetailItem"
-            app:destination="@id/productDetailItem" />
+            app:destination="@id/productDetailItem"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_rigth" />
     </fragment>
     <fragment
         android:id="@+id/productDetailItem"
