@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.project.databinding.FragmentProductDetailItemBinding
 import com.project.databinding.FragmentProductListBinding
+import com.squareup.picasso.Picasso
 
 class ProductDetailItem : Fragment() {
 
@@ -18,7 +19,11 @@ class ProductDetailItem : Fragment() {
         super.onCreate(savedInstanceState)
 
         arguments?.let { bundle ->
-            binding.description.text = bundle.getString("title")
+            binding.price.text = "R$ ${bundle.getString("price")}"
+            binding.quantidadeDisponivel.text = bundle.getString("available_quantity")
+
+            Picasso.Builder(binding.root.context).build()
+                .load(bundle.getString("image")).into(binding.image)
         }
     }
 

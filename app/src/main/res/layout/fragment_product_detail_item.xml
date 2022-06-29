@@ -1,40 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:orientation="vertical"
+    android:padding="1dp"
     tools:context=".ProductDetailItem">
 
-     <RelativeLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:gravity="center">
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/image_detail_background"
+        android:src="@drawable/image_mock_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-         <ImageView
-             android:id="@+id/image"
-             android:layout_width="match_parent"
-             android:layout_height="200dp"
-             android:layout_marginBottom="10dp"
-             android:adjustViewBounds="true"
-             android:contentDescription="@null"
-             android:scaleType="centerCrop"
-             android:src="@drawable/image_mock_1"/>
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="R$ 292,00"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image" />
 
-         <TextView
-             android:id="@+id/description"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             style="@style/TextAppearance.AppCompat.Body1"
-             android:text="Lorem ipsum dolor sit amet, coznsectetur adipiscing elit. Aenean nec quam orci. Sed sagittis volutpat varius. Suspendisse lobortis mauris id ultrices dictum. Quisque lobortis posuere auctor. Nullam congue, magna ut imperdiet sagittis, mi sapien ullamcorper augue, id bibendum nisi libero nec arcu. Quisque aliquet feugiat est, eu semper nulla semper et. Donec at lorem sagittis, ullamcorper purus vel, suscipit metus. Duis a metus eget ex euismod placerat. Ut eleifend non nunc eget egestas. Maecenas ac massa vehicula, elementum quam ut, tempor lectus"
-             android:layout_marginStart="10dp"
-             android:layout_marginEnd="10dp"
-             android:layout_marginBottom="10dp"
-             android:layout_below="@+id/image"
-             tools:ignore="HardcodedText"
-             />
+    <TextView
+        android:id="@+id/forma_pagamento"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Ver os meios de pagamento"
+        android:textColor="@color/blue_meli"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/price"
+        tools:ignore="HardcodedText" />
 
-     </RelativeLayout>
+    <TextView
+        android:id="@+id/estoque_disponvel"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Estoque Disponivel"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/forma_pagamento" />
+    <TextView
+        android:id="@+id/itens_disponiveis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Quantidade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.165"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/estoque_disponvel"
+        tools:ignore="HardcodedText" />
 
-</ScrollView>
+    <TextView
+        android:id="@+id/numero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="10dp"
+        android:text="1"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintStart_toEndOf="@+id/itens_disponiveis"
+        app:layout_constraintTop_toBottomOf="@+id/estoque_disponvel"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/quantidade_disponivel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:padding="10dp"
+        android:text="326 disponíveis"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/numero"
+        app:layout_constraintTop_toBottomOf="@+id/estoque_disponvel"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/button_comprar"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="Comprar agora"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/blue_meli"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quantidade_disponivel" />
+    <Button
+        android:id="@+id/Adicionar_carrinho"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="Adicionar ao carrinho"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/grey_meli"
+        android:textColor="@color/blue_meli"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_comprar" />
+
+
+
+    <ImageView
+        android:id="@+id/favorite_item"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="60dp"
+        android:src="@drawable/favorite_icon"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Adicionar_carrinho"
+        app:tint="@color/blue_meli" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingTop="5dp"
+        android:paddingLeft="15dp"
+        android:text="Adicionar aos favoritos"
+        android:textColor="@color/blue_meli"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Adicionar_carrinho" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

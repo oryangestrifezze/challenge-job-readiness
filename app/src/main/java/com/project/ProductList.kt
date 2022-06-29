@@ -50,6 +50,6 @@ class ProductList : Fragment() {
 
     private fun adapterOnClick(item: ItemModel) {
         findNavController().navigate(R.id.action_productList_to_productDetailItem,
-            bundleOf("title" to item.title, "price" to item.price, "image" to item.secure_thumbnail))
+            bundleOf("title" to item.title, "price" to item.price, "image" to item.secure_thumbnail, "available_quantity" to item.available_quantity))
     }
 }
