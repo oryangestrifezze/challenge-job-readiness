@@ -1,5 +1,6 @@
 package com.project.ViewModel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,28 +12,16 @@ class MainViewModel : ViewModel() {
 
     val repository = MainRepository()
 
-    val categoryResponse = MutableLiveData<List<CategoryResponse>>()
-    val highlightsResponseList = MutableLiveData<HighlightsResponse>()
-    val categoryIdList = MutableLiveData<List<CategoryId>>()
+    private var itemModelList: MutableLiveData<List<ItemModel>> = MutableLiveData(emptyList())
+    val _itemModelList: LiveData<List<ItemModel>>
+        get() {
+            return itemModelList
+        }
 
-    fun getCategory() {
+    fun getCategory(search: String) {
         viewModelScope.launch {
-            val result = repository.getCategory("Game")
-            categoryResponse.value = result
+            itemModelList.value = repository.getCategory(search)
         }
     }
 
-    fun getHighlights() {
-        viewModelScope.launch {
-            val result = repository.getHighlights("MLB29344")
-            highlightsResponseList.value = result
-        }
-    }
-
-    fun getCategoryId() {
-        viewModelScope.launch {
-            val result = repository.getCategoryId("MLB793669133")
-            categoryIdList.value = result
-        }
-    }
 }

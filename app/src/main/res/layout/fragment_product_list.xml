@@ -10,16 +10,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/yellow_meli"
         android:layout_gravity="center"
+        android:background="@color/yellow_meli"
         android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="10dp"
             android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
             android:src="@drawable/menu" />
 
         <androidx.appcompat.widget.SearchView
@@ -38,26 +38,22 @@
             android:id="@+id/all_favorite_items"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/favorite_icon"
             android:layout_gravity="center"
             android:layout_marginEnd="10dp"
+            android:src="@drawable/favorite_icon"
             app:tint="@color/black" />
     </LinearLayout>
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/produtc_item" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/title"
-            android:layout_marginTop="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:listitem="@layout/produtc_item" />
 
-    </ScrollView>
 </androidx.appcompat.widget.LinearLayoutCompat>

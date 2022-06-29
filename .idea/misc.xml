@@ -10,11 +10,11 @@
         <entry key="app/src/main/res/drawable/icon_favorite_background.xml" value="0.286" />
         <entry key="app/src/main/res/drawable/image_item_background.xml" value="0.195" />
         <entry key="app/src/main/res/drawable/search_view_background.xml" value="0.1625" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/fragment_product_detail_item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_product_item.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_product_list.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_product_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/produtc_item.xml" value="0.5" />
       </map>
     </option>
