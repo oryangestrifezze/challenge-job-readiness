@@ -16,10 +16,18 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_rigth" />
+        <action
+            android:id="@+id/action_productList_to_favoriteList"
+            app:destination="@id/favoriteList" />
     </fragment>
     <fragment
         android:id="@+id/productDetailItem"
         android:name="com.project.ProductDetailItem"
         android:label="fragment_product_detail_item"
         tools:layout="@layout/fragment_product_detail_item" />
+    <fragment
+        android:id="@+id/favoriteList"
+        android:name="com.project.FavoriteList"
+        android:label="fragment_favorite_list"
+        tools:layout="@layout/fragment_favorite_list" />
 </navigation>

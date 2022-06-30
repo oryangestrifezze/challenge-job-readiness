@@ -38,6 +38,9 @@ class ProductList : Fragment() {
         }
 
         viewmodel.getCategory("Violoncelo")
+        binding.allFavoriteItems.setOnClickListener {
+            findNavController().navigate(R.id.action_productList_to_favoriteList)
+        }
     }
 
     override fun onCreateView(
