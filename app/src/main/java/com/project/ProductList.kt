@@ -29,8 +29,7 @@ class ProductList : Fragment() {
 
         adapter = ProductAdapter({ adapterOnClick(it) })
 
-        binding.recyclerViewList.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        binding.recyclerViewList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.recyclerViewList.adapter = adapter
 
         viewmodel._itemModelList.observe(this) {
@@ -57,6 +56,7 @@ class ProductList : Fragment() {
         findNavController().navigate(
             R.id.action_productList_to_productDetailItem,
             bundleOf(
+                "id" to item.id,
                 "title" to item.title,
                 "price" to item.price,
                 "image" to item.secure_thumbnail,
