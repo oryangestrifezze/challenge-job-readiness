@@ -64,6 +64,4 @@ dependencies {
     // Carrega a foto na imageview via http
     implementation 'com.squareup.picasso:picasso:2.8'
 
-    //GSON to Object
-    implementation 'com.google.code.gson:gson:2.8.8'
 }

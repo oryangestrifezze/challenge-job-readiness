@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import com.project.ViewModel.FavoriteViewModel
 import com.project.databinding.FragmentFavoriteListBinding
 
 
@@ -14,8 +16,16 @@ class FavoriteList : Fragment() {
         FragmentFavoriteListBinding.inflate(layoutInflater)
     }
 
+    private val viewmodel : FavoriteViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        viewmodel.itemsFavoritesModelList.observe(this) {
+            binding.notFound.visibility = if(it.isEmpty()) View.VISIBLE else View.GONE
+        }
+
+       viewmodel.getFavoritesItems()
     }
 
     override fun onCreateView(
