@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -24,13 +23,13 @@
             android:src="@drawable/menu" />
 
         <TextView
-            android:id="@+id/not_found"
+            android:id="@+id/text_favorite"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Favoritos"
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
+
         <ImageView
             android:id="@+id/search_icon"
             android:layout_width="40dp"
@@ -39,6 +38,7 @@
             android:layout_marginRight="10dp"
             android:src="@drawable/icon_search"
             app:tint="@color/black" />
+
         <ImageView
             android:id="@+id/cart_icon"
             android:layout_width="40dp"
@@ -48,6 +48,15 @@
             android:src="@drawable/shopping_cart"
             app:tint="@color/black" />
     </LinearLayout>
+    <TextView
+        android:id="@+id/not_found"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:visibility="visible"
+        android:text="Não há produtos favoritados!"
+        />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -60,6 +69,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/favorite_item" />
-
 
 </androidx.appcompat.widget.LinearLayoutCompat>

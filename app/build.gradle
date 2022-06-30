@@ -52,7 +52,6 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.4.2"
     implementation "androidx.navigation:navigation-ui-ktx:2.4.2"
 
-
     // Permissão de conversao de JSON para object
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
@@ -65,7 +64,6 @@ dependencies {
     // Carrega a foto na imageview via http
     implementation 'com.squareup.picasso:picasso:2.8'
 
-    //Fragments
-    //fragment
-    implementation "androidx.fragment:fragment-ktx:1.4.1"
+    //GSON to Object
+    implementation 'com.google.code.gson:gson:2.8.8'
 }

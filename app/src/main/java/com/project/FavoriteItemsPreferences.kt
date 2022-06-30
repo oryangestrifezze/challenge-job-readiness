@@ -3,9 +3,6 @@ package com.project
 import android.content.Context
 
 class FavoriteItemsPreferences(context: Context) {
-    //todo:
-    //se nao der certo assim:
-    // criar um list e na save dar um add
 
     val sharedKey = "SHERED_KEY_XML"
     val favorite_item_key = "FAVORITE_ITEM_KEY"
@@ -18,5 +15,9 @@ class FavoriteItemsPreferences(context: Context) {
 
     fun getFavoriteItem() : Int {
         return storage.getInt(favorite_item_key, 0)
+    }
+
+    fun removeFavoriteItem() {
+        //todo: implementar
     }
 }
