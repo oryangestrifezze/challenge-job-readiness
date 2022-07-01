@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -25,19 +26,39 @@ class ProductList : Fragment() {
     lateinit var adapter: ProductAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+        var searchView = binding.inputTextSearch
 
         adapter = ProductAdapter({ adapterOnClick(it) })
 
-        binding.recyclerViewList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        binding.recyclerViewList.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.recyclerViewList.adapter = adapter
+
 
         viewmodel._itemModelList.observe(this) {
             binding.notFound.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
             adapter.listItems = it
         }
 
-        viewmodel.getCategory("Game")
+        fun searchviewSetup() {
+            searchView.clearFocus()
+
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+                override fun onQueryTextSubmit(query: String): Boolean {
+                    viewmodel.getCategory(query)
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String): Boolean {
+                    return true
+                }
+            })
+        }
+
+        searchviewSetup()
 
         binding.allFavoriteItems.setOnClickListener {
             findNavController().navigate(R.id.action_productList_to_favoriteList)
@@ -64,4 +85,5 @@ class ProductList : Fragment() {
             )
         )
     }
+
 }
