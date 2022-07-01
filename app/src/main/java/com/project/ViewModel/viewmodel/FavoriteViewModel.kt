@@ -1,12 +1,12 @@
-package com.project.ViewModel
+package com.project.ViewModel.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.project.Data.MainRepository
-import com.project.FavoriteApplication.Companion.favoritePreferences
-import com.project.Model.ItemModel
+import com.project.Repository.data_source.MainRepository
+import com.project.Repository.data.FavoriteApplication.Companion.favoritePreferences
+import com.project.Repository.model.ItemModel
 import kotlinx.coroutines.launch
 
 class FavoriteViewModel : ViewModel(){

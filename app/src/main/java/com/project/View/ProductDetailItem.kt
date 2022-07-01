@@ -1,12 +1,13 @@
-package com.project
+package com.project.View
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.project.Repository.data.FavoriteApplication
+import com.project.R
 import com.project.databinding.FragmentProductDetailItemBinding
-import com.project.databinding.FragmentProductListBinding
 import com.squareup.picasso.Picasso
 
 class ProductDetailItem : Fragment() {

@@ -1,7 +1,6 @@
-package com.project.Data
+package com.project.Repository.data_source
 
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -18,7 +17,7 @@ class RetrofitServices {
 
         private fun getRetrofitInstance() : Retrofit {
             val http = OkHttpClient.Builder()
-            if(!::INSTANCE.isInitialized) {
+            if(!Companion::INSTANCE.isInitialized) {
                 INSTANCE = Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .client(client)

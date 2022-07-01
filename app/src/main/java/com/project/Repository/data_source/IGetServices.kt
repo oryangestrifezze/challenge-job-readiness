@@ -1,12 +1,10 @@
-package com.project.Data
+package com.project.Repository.data_source
 
-import com.project.Model.CategoryId
-import com.project.Model.CategoryIdResponse
-import com.project.Model.CategoryResponse
-import com.project.Model.HighlightsResponse
+import com.project.Repository.model.CategoryId
+import com.project.Repository.model.CategoryResponse
+import com.project.Repository.model.HighlightsResponse
 
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.Path
 import retrofit2.http.Query
 

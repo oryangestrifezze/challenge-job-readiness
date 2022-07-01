@@ -1,7 +1,6 @@
-package com.project
+package com.project.View
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,8 +10,10 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.project.Model.ItemModel
-import com.project.ViewModel.MainViewModel
+import com.project.Repository.model.ItemModel
+import com.project.ViewModel.adapters.ProductAdapter
+import com.project.R
+import com.project.ViewModel.viewmodel.ProductViewModel
 import com.project.databinding.FragmentProductListBinding
 
 class ProductList : Fragment() {
@@ -21,7 +22,7 @@ class ProductList : Fragment() {
         FragmentProductListBinding.inflate(layoutInflater)
     }
 
-    private val viewmodel: MainViewModel by viewModels()
+    private val viewmodel: ProductViewModel by viewModels()
 
     lateinit var adapter: ProductAdapter
 

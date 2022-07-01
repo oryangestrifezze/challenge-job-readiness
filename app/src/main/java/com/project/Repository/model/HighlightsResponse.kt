@@ -1,9 +1,9 @@
-package com.project.Model
+package com.project.Repository.model
 
 import com.google.gson.annotations.SerializedName
 
 data class HighlightsResponse(
     @SerializedName("content")
-    val content: List<highlightItem>?,
+    val content: List<highlightItemModel>?,
 
-)
+    )

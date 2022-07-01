@@ -1,10 +1,10 @@
-package com.project
+package com.project.ViewModel.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.project.FavoriteApplication.Companion.favoritePreferences
-import com.project.Model.ItemModel
+import com.project.Repository.data.FavoriteApplication.Companion.favoritePreferences
+import com.project.Repository.model.ItemModel
 import com.project.databinding.FavoriteItemBinding
 import com.squareup.picasso.Picasso
 
@@ -40,6 +40,7 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteAdapterView
                 .load(item.secure_thumbnail).into(binding.imageItem)
 
             binding.excluir.setOnClickListener {
+                println("funcionaaaaaa")
                 favoritePreferences.removeFavoriteItem(it.id.toString())
             }
         }

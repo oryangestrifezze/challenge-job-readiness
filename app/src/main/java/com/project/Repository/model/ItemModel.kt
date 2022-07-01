@@ -1,4 +1,4 @@
-package com.project.Model
+package com.project.Repository.model
 
 data class ItemModel(
     val id: String,

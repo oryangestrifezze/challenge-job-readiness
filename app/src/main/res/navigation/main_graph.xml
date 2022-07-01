@@ -6,7 +6,7 @@
     app:startDestination="@id/productList">
     <fragment
         android:id="@+id/productList"
-        android:name="com.project.ProductList"
+        android:name="com.project.View.ProductList"
         android:label="fragment_product_list"
         tools:layout="@layout/fragment_product_list" >
         <action
@@ -26,12 +26,12 @@
     </fragment>
     <fragment
         android:id="@+id/productDetailItem"
-        android:name="com.project.ProductDetailItem"
+        android:name="com.project.View.ProductDetailItem"
         android:label="fragment_product_detail_item"
         tools:layout="@layout/fragment_product_detail_item" />
     <fragment
         android:id="@+id/favoriteList"
-        android:name="com.project.FavoriteList"
+        android:name="com.project.View.FavoriteList"
         android:label="fragment_favorite_list"
         tools:layout="@layout/fragment_favorite_list" />
 </navigation>

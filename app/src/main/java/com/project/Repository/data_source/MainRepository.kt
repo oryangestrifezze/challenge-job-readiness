@@ -1,7 +1,9 @@
-package com.project.Data
+package com.project.Repository.data_source
 
 import android.util.Log
-import com.project.Model.*
+import com.project.Repository.model.CategoryId
+import com.project.Repository.model.HighlightsResponse
+import com.project.Repository.model.ItemModel
 
 
 // Padrão para lidar com dados (api/db)

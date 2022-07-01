@@ -1,11 +1,11 @@
-package com.project
+package com.project.ViewModel.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.project.FavoriteApplication.Companion.favoritePreferences
-import com.project.Model.ItemModel
+import com.project.Repository.data.FavoriteApplication.Companion.favoritePreferences
+import com.project.R
+import com.project.Repository.model.ItemModel
 import com.project.databinding.ProdutcItemBinding
 import com.squareup.picasso.Picasso
 

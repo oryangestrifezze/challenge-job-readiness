@@ -1,4 +1,4 @@
-package com.project
+package com.project.View
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.project.ViewModel.FavoriteViewModel
+import com.project.ViewModel.adapters.FavoriteAdapter
+import com.project.ViewModel.viewmodel.FavoriteViewModel
 import com.project.databinding.FragmentFavoriteListBinding
 
 

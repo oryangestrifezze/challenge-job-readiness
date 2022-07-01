@@ -1,14 +1,14 @@
-package com.project.ViewModel
+package com.project.ViewModel.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.project.Data.MainRepository
-import com.project.Model.*
+import com.project.Repository.data_source.MainRepository
+import com.project.Repository.model.ItemModel
 import kotlinx.coroutines.launch
 
-class MainViewModel : ViewModel() {
+class ProductViewModel : ViewModel() {
 
     val repository = MainRepository()
 

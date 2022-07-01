@@ -1,4 +1,4 @@
-package com.project.Model
+package com.project.Repository.model
 
 import com.google.gson.annotations.SerializedName
 
