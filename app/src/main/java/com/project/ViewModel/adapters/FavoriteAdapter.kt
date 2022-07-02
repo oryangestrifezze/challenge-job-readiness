@@ -3,6 +3,7 @@ package com.project.ViewModel.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.project.R
 import com.project.Repository.data.FavoriteApplication.Companion.favoritePreferences
 import com.project.Repository.model.ItemModel
 import com.project.databinding.FavoriteItemBinding
@@ -39,11 +40,12 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteAdapterView
             Picasso.Builder(binding.root.context).build()
                 .load(item.secure_thumbnail).into(binding.imageItem)
 
-            binding.excluir.setOnClickListener {
-                favoritePreferences.removeFavoriteItem(it.id.toString())
+            binding.buttonExcluir.setOnClickListener {
+                var id = item.id
+                    favoritePreferences.removeFavoriteItem(id)
+                }
             }
         }
 
-    }
 
 }

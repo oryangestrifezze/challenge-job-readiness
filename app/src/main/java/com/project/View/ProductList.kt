@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.Repository.model.ItemModel
 import com.project.ViewModel.adapters.ProductAdapter
 import com.project.R
+import com.project.Repository.data.FavoriteApplication
 import com.project.ViewModel.viewmodel.ProductViewModel
 import com.project.databinding.FragmentProductListBinding
 
@@ -41,6 +42,7 @@ class ProductList : Fragment() {
         viewmodel._itemModelList.observe(this) {
             adapter.listItems = it
             binding.notFound.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
+
         }
 
         fun searchviewSetup() {
@@ -86,5 +88,6 @@ class ProductList : Fragment() {
             )
         )
     }
+
 
 }
