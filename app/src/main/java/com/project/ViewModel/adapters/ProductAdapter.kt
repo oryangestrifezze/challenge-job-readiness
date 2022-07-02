@@ -8,6 +8,7 @@ import com.project.R
 import com.project.Repository.model.ItemModel
 import com.project.databinding.ProdutcItemBinding
 import com.squareup.picasso.Picasso
+import kotlin.reflect.typeOf
 
 
 class ProductAdapter(val clickedItem: (item: ItemModel) -> Unit) :
@@ -38,9 +39,10 @@ class ProductAdapter(val clickedItem: (item: ItemModel) -> Unit) :
 
         fun bind(item: ItemModel) {
             var list = favoritePreferences.getFavoritesItems()
-
+            val amout = item.price?.toIntOrNull() ?: 100
             binding.textTitle.text = item.title
             binding.textPrice.text = "R$ ${item.price}"
+            binding.textInstallmentAmount.text = "6 x R$ ${amout/6} sem juros"
             Picasso.Builder(binding.root.context).build()
                 .load(item.secure_thumbnail).into(binding.imageItem)
 

@@ -54,7 +54,6 @@ class MainRepository {
             response = service.fetchIdCategory(items?.joinToString()!!)
         } catch (e: Exception) {
             Log.e("MainRepository", "getCategoryId() : ${e.toString()}")
-
         }
         return response
     }
