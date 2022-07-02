@@ -49,22 +49,21 @@ class ProductAdapter(val clickedItem: (item: ItemModel) -> Unit) :
             Picasso.Builder(binding.root.context).build()
                 .load(item.secure_thumbnail).into(binding.imageItem)
 
-            fun updateListFavorites() {
-                if (updateList().contains(item.id)) binding.favoriteItem.setImageResource(R.drawable.full_favorite_icon)
+            if(item.isFavorite) binding.favoriteItem.setImageResource(R.drawable.full_favorite_icon)
                 else {
                     binding.favoriteItem.setImageResource(R.drawable.favorite_icon)
                 }
-            }
-
 
             binding.favoriteItem.setOnClickListener {
                 var id = item.id
                 if(list.contains(id)) {
                     favoritePreferences.removeFavoriteItem(id)
                     binding.favoriteItem.setImageResource(R.drawable.favorite_icon)
+                    item.isFavorite = false
                 } else {
                     favoritePreferences.saveFavoriteItem(id)
                     binding.favoriteItem.setImageResource(R.drawable.full_favorite_icon)
+                    item.isFavorite = true
                 }
             }
 
@@ -74,5 +73,5 @@ class ProductAdapter(val clickedItem: (item: ItemModel) -> Unit) :
         }
     }
 
-   private fun updateList() = FavoriteApplication.favoritePreferences.getFavoritesItems()
+   private fun updateList() = favoritePreferences.getFavoritesItems()
 }

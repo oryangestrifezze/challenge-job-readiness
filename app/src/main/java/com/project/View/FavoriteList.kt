@@ -37,6 +37,11 @@ class FavoriteList : Fragment() {
        viewmodel.getFavoritesItems()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewmodel.verifyFavorites()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

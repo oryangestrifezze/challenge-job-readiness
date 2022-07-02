@@ -43,6 +43,7 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteAdapterView
             binding.buttonExcluir.setOnClickListener {
                 var id = item.id
                     favoritePreferences.removeFavoriteItem(id)
+                    item.isFavorite = false
                 }
             }
         }

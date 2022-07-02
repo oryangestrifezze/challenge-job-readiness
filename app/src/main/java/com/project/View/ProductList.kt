@@ -28,7 +28,6 @@ class ProductList : Fragment() {
     lateinit var adapter: ProductAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         var searchView = binding.inputTextSearch
 
@@ -42,7 +41,6 @@ class ProductList : Fragment() {
         viewmodel._itemModelList.observe(this) {
             adapter.listItems = it
             binding.notFound.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
-
         }
 
         fun searchviewSetup() {
@@ -76,6 +74,11 @@ class ProductList : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewmodel.verifyFavorites()
+    }
+
     private fun adapterOnClick(item: ItemModel) {
         findNavController().navigate(
             R.id.action_productList_to_productDetailItem,
@@ -84,7 +87,8 @@ class ProductList : Fragment() {
                 "title" to item.title,
                 "price" to item.price,
                 "image" to item.secure_thumbnail,
-                "available_quantity" to item.available_quantity
+                "available_quantity" to item.available_quantity,
+                "isFavorite" to item.isFavorite
             )
         )
     }

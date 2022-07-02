@@ -22,6 +22,8 @@ class ProductDetailItem : Fragment() {
 
         arguments?.let { bundle ->
             val id = bundle.getString("id").toString()
+            var isFavorite = bundle.getString("isFavorite").toString()
+
             binding.price.text = "R$ ${bundle.getString("price")}"
             binding.quantidadeDisponivel.text = bundle.getString("available_quantity")
 
@@ -36,6 +38,7 @@ class ProductDetailItem : Fragment() {
                 if (updateList().contains(id)) {
                     favoritePreferences.removeFavoriteItem(id)
                     binding.favoriteItem.setImageResource(R.drawable.favorite_icon)
+
                 } else {
                     favoritePreferences.saveFavoriteItem(id)
                     binding.favoriteItem.setImageResource(R.drawable.full_favorite_icon)

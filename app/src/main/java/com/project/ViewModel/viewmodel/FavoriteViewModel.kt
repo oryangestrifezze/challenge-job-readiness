@@ -12,11 +12,8 @@ import kotlinx.coroutines.launch
 class FavoriteViewModel : ViewModel(){
 
     private val repository = MainRepository()
-
     private var idsFavoriteItems: List<String> = favoritePreferences.getFavoritesItems()
-
     private var _itemsFavoritesModelList: MutableLiveData<List<ItemModel>> = MutableLiveData(emptyList())
-
     val itemsFavoritesModelList : LiveData<List<ItemModel>>
         get() {
             return _itemsFavoritesModelList
@@ -28,4 +25,12 @@ class FavoriteViewModel : ViewModel(){
         }
     }
 
+    fun verifyFavorites() {
+        val listFavorites = favoritePreferences.getFavoritesItems()
+        _itemsFavoritesModelList.value = _itemsFavoritesModelList.value.apply {
+            this?.forEach {
+                it.isFavorite = listFavorites.contains(it.id)
+            }
+        }
+    }
 }
