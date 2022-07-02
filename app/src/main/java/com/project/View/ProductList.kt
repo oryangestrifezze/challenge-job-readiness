@@ -39,8 +39,8 @@ class ProductList : Fragment() {
 
 
         viewmodel._itemModelList.observe(this) {
-            binding.notFound.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
             adapter.listItems = it
+            binding.notFound.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
         }
 
         fun searchviewSetup() {

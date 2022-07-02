@@ -40,7 +40,6 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteAdapterView
                 .load(item.secure_thumbnail).into(binding.imageItem)
 
             binding.excluir.setOnClickListener {
-                println("funcionaaaaaa")
                 favoritePreferences.removeFavoriteItem(it.id.toString())
             }
         }

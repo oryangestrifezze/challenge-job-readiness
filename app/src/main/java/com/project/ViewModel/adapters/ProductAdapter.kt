@@ -37,16 +37,16 @@ class ProductAdapter(val clickedItem: (item: ItemModel) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: ItemModel) {
+            var list = favoritePreferences.getFavoritesItems()
+
             binding.textTitle.text = item.title
             binding.textPrice.text = "R$ ${item.price}"
-
             Picasso.Builder(binding.root.context).build()
                 .load(item.secure_thumbnail).into(binding.imageItem)
 
+
             binding.favoriteItem.setOnClickListener {
                 var id = item.id
-                var list = favoritePreferences.getFavoritesItems()
-
                 if(list.contains(id)) {
                     favoritePreferences.removeFavoriteItem(id)
                     binding.favoriteItem.setImageResource(R.drawable.favorite_icon)

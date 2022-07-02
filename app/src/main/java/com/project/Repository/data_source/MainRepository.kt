@@ -6,45 +6,56 @@ import com.project.Repository.model.HighlightsResponse
 import com.project.Repository.model.ItemModel
 
 
-// Padrão para lidar com dados (api/db)
 class MainRepository {
+
     private val service: IGetServices = RetrofitServices.createGetService()
 
     suspend fun getCategory(search: String): List<ItemModel> {
-
         var list: List<String>?
-        var listResult: List<ItemModel> = emptyList()
-
+        var response: List<ItemModel> = emptyList()
         try {
-            service.fetchCategory(search)[0].let {
-                list = getHighlights(it.category_id.toString())
-                    .content?.filter { it.type == "ITEM" }?.map { it.id }
-                listResult = getCategoryId(list).map { it.body }
-            }
+            service.fetchCategory(search)[0]
+                .let { it ->
+                    list = getHighlights(it.category_id.toString()).content
+                        ?.filter { it.type == "ITEM" }
+                        ?.map { it.id }
+                    response = getCategoryId(list).map { it.body }
+                }
         } catch (e: Exception) {
             Log.e("MainRepository", "getCategory() : ${e.toString()}")
         }
-        return listResult
+        return response
 
     }
 
     suspend fun getFavoritesItems(list: List<String>?): List<ItemModel> {
-        var listResult: List<ItemModel> = emptyList()
+        var response: List<ItemModel> = emptyList()
         try {
-            listResult = getCategoryId(list).map { it.body }
+            response = getCategoryId(list).map { it.body }
         } catch (e: Exception) {
             Log.e("MainRepository", "getFavoritesItems() : ${e.toString()}")
         }
-        return listResult
+        return response
     }
-
 
     private suspend fun getHighlights(idCategory: String): HighlightsResponse {
-        return service.fetchHighlightsResponse(idCategory)
+        var response: HighlightsResponse = HighlightsResponse(null)
+        try {
+            response = service.fetchHighlightsResponse(idCategory)
+        } catch (e: Exception) {
+            Log.e("MainRepository", "getHighlights() : ${e.toString()}")
+        }
+        return response
     }
 
-    suspend fun getCategoryId(items: List<String>?): List<CategoryId> {
-        return service.fetchIdCategory(items?.joinToString()!!)
-    }
+    private suspend fun getCategoryId(items: List<String>?): List<CategoryId> {
+        var response: List<CategoryId> = emptyList()
+        try {
+            response = service.fetchIdCategory(items?.joinToString()!!)
+        } catch (e: Exception) {
+            Log.e("MainRepository", "getCategoryId() : ${e.toString()}")
 
+        }
+        return response
+    }
 }
