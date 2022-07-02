@@ -22,7 +22,7 @@ class MainRepository {
                     response = getCategoryId(list).map { it.body }
                 }
         } catch (e: Exception) {
-            Log.e("MainRepository", "getCategory() : ${e.toString()}")
+            Log.e("MainRepository", "getCategory() : $e")
         }
         return response
 
@@ -33,7 +33,7 @@ class MainRepository {
         try {
             response = getCategoryId(list).map { it.body }
         } catch (e: Exception) {
-            Log.e("MainRepository", "getFavoritesItems() : ${e.toString()}")
+            Log.e("MainRepository", "getFavoritesItems() : $e")
         }
         return response
     }
@@ -43,7 +43,7 @@ class MainRepository {
         try {
             response = service.fetchHighlightsResponse(idCategory)
         } catch (e: Exception) {
-            Log.e("MainRepository", "getHighlights() : ${e.toString()}")
+            Log.e("MainRepository", "getHighlights() : $e")
         }
         return response
     }

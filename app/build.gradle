@@ -61,6 +61,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    //Testing corroutines
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.3"
+
     //Fragment
     implementation 'androidx.fragment:fragment-ktx:1.4.1'
 

@@ -2,10 +2,12 @@ package com.project.ViewModel.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
-import com.project.R
+import com.project.ViewModel.viewmodel.FavoriteViewModel
 import com.project.Repository.data.FavoriteApplication.Companion.favoritePreferences
 import com.project.Repository.model.ItemModel
+
 import com.project.databinding.FavoriteItemBinding
 import com.squareup.picasso.Picasso
 
@@ -16,7 +18,6 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteAdapterView
             field = value
             notifyDataSetChanged()
         }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteAdapterViewHolder {
         var inflater = LayoutInflater.from(parent.context)
         val binding = FavoriteItemBinding.inflate(inflater, parent, false)
@@ -44,9 +45,15 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteAdapterView
                 var id = item.id
                     favoritePreferences.removeFavoriteItem(id)
                     item.isFavorite = false
-                }
-            }
-        }
 
+                }
+
+
+            }
+    }
 
 }
+
+
+
+

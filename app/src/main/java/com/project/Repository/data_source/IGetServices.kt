@@ -10,10 +10,10 @@ import retrofit2.http.Query
 
 interface IGetServices {
 
-    @GET("sites/MLB/domain_discovery/search?limit=1") //Preditor
+    @GET("sites/MLB/domain_discovery/search?limit=1")
     suspend fun fetchCategory(@Query("q") search : String) : List<CategoryResponse>
 
-    @GET("highlights/MLB/category/{id}") // esse precisa
+    @GET("highlights/MLB/category/{id}")
     suspend fun fetchHighlightsResponse(@Path("id") idCategory : String) : HighlightsResponse
 
     @GET("items")

@@ -40,7 +40,7 @@ class ProductList : Fragment() {
 
         viewmodel._itemModelList.observe(this) {
             adapter.listItems = it
-            binding.notFound.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
+            binding.notFound.visibility = if (viewmodel._itemModelList.value.isNullOrEmpty()) View.VISIBLE else View.GONE
         }
 
         fun searchviewSetup() {
@@ -50,10 +50,13 @@ class ProductList : Fragment() {
 
                 override fun onQueryTextSubmit(query: String): Boolean {
                     viewmodel.getCategory(query)
+
                     return false
                 }
 
                 override fun onQueryTextChange(newText: String): Boolean {
+                    //viewmodel.getCategory(newText)
+                    //comentada para evitar ser chamada a cada mudança de texto.
                     return true
                 }
             })
@@ -92,6 +95,4 @@ class ProductList : Fragment() {
             )
         )
     }
-
-
 }

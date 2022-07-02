@@ -42,10 +42,10 @@ class ProductAdapter(val clickedItem: (item: ItemModel) -> Unit) :
 
         fun bind(item: ItemModel) {
             var list = updateList()
-            val amout = item.price?.toIntOrNull() ?: 100
+            val amout = item.price.toFloat().div(6)
             binding.textTitle.text = item.title
             binding.textPrice.text = "R$ ${item.price}"
-            binding.textInstallmentAmount.text = "6 x R$ ${amout/6} sem juros"
+            binding.textInstallmentAmount.text = "6 x R$ ${amout.toInt()} sem juros"
             Picasso.Builder(binding.root.context).build()
                 .load(item.secure_thumbnail).into(binding.imageItem)
 
