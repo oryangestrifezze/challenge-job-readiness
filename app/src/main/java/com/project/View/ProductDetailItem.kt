@@ -22,20 +22,21 @@ class ProductDetailItem : Fragment() {
 
         arguments?.let { bundle ->
             val id = bundle.getString("id").toString()
-            var isFavorite = bundle.getString("isFavorite").toString()
 
             binding.price.text = "R$ ${bundle.getString("price")}"
             binding.quantidadeDisponivel.text = bundle.getString("available_quantity")
 
             Picasso.Builder(binding.root.context).build()
                 .load(bundle.getString("image")).into(binding.image)
-            if (updateList().contains(id)) binding.favoriteItem.setImageResource(R.drawable.full_favorite_icon)
+            if (favoritePreferences.getFavoritesItems()
+                    .contains(id)
+            ) binding.favoriteItem.setImageResource(R.drawable.full_favorite_icon)
             else {
                 binding.favoriteItem.setImageResource(R.drawable.favorite_icon)
             }
 
             binding.favoriteItem.setOnClickListener {
-                if (updateList().contains(id)) {
+                if (favoritePreferences.getFavoritesItems().contains(id)) {
                     favoritePreferences.removeFavoriteItem(id)
                     binding.favoriteItem.setImageResource(R.drawable.favorite_icon)
 
@@ -55,7 +56,4 @@ class ProductDetailItem : Fragment() {
     ): View? {
         return binding.root
     }
-
-    fun updateList() = favoritePreferences.getFavoritesItems()
-
 }

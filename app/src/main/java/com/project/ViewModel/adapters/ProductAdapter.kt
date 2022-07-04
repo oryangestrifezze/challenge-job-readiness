@@ -41,7 +41,7 @@ class ProductAdapter(val clickedItem: (item: ItemModel) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: ItemModel) {
-            var list = updateList()
+
             val amout = item.price.toFloat().div(6)
             binding.textTitle.text = item.title
             binding.textPrice.text = "R$ ${item.price}"
@@ -56,7 +56,7 @@ class ProductAdapter(val clickedItem: (item: ItemModel) -> Unit) :
 
             binding.favoriteItem.setOnClickListener {
                 var id = item.id
-                if(list.contains(id)) {
+                if(favoritePreferences.getFavoritesItems().contains(id)) {
                     favoritePreferences.removeFavoriteItem(id)
                     binding.favoriteItem.setImageResource(R.drawable.favorite_icon)
                     item.isFavorite = false
@@ -73,5 +73,4 @@ class ProductAdapter(val clickedItem: (item: ItemModel) -> Unit) :
         }
     }
 
-   private fun updateList() = favoritePreferences.getFavoritesItems()
 }

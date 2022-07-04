@@ -11,7 +11,7 @@ import com.project.Repository.model.ItemModel
 import com.project.databinding.FavoriteItemBinding
 import com.squareup.picasso.Picasso
 
-class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteAdapterViewHolder>() {
+class FavoriteAdapter(private val removeFavorite: (id: String) -> Unit) : RecyclerView.Adapter<FavoriteAdapter.FavoriteAdapterViewHolder>() {
 
     var listFavoriteItems: List<ItemModel> = emptyList()
         set(value) {
@@ -42,10 +42,7 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteAdapterView
                 .load(item.secure_thumbnail).into(binding.imageItem)
 
             binding.buttonExcluir.setOnClickListener {
-                var id = item.id
-                    favoritePreferences.removeFavoriteItem(id)
-                    item.isFavorite = false
-
+                    removeFavorite(item.id)
                 }
 
 

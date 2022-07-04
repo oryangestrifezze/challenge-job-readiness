@@ -24,7 +24,9 @@ class FavoriteList : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        adapter = FavoriteAdapter()
+        adapter = FavoriteAdapter {
+            removeFavorite(it)
+        }
 
         binding.recyclerViewList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.recyclerViewList.adapter = adapter
@@ -43,6 +45,10 @@ class FavoriteList : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return binding.root
+    }
+
+    private fun removeFavorite(id: String) {
+        viewmodel.removeFavorites(id)
     }
 
 }

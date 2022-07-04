@@ -4,20 +4,27 @@ import android.content.Context
 
 class FavoriteItemsPreferences(context: Context) {
 
-    private val sharedKey = "SHERED_KEY_XML"
-    private val favorite_id_key = "FAVORITE_ID_KEY"
-    private val idListFavorites = mutableListOf<String>()
+    private val sharedKey = "FAVORITE_KEY"
     private  val storage = context.getSharedPreferences(sharedKey, 0)
 
 
     fun saveFavoriteItem(id: String) {
-        storage.edit().putString("$favorite_id_key $id", id).apply()
-        idListFavorites.add(id)
+        val items = getFavoritesItems()
+        items.add(id)
+        storage.edit().putStringSet(sharedKey, items).apply()
     }
 
-    fun getFavoritesItems() = idListFavorites
+    fun getFavoritesItems()  = storage.getStringSet(sharedKey, mutableSetOf())!!.toMutableSet()
 
     fun removeFavoriteItem(id : String) {
-        idListFavorites.remove(id)
+        val items = getFavoritesItems()
+        println("lista antes de remover: $items")
+        items.remove(id)
+        println("lista depois de remover: $items")
+
+        storage.edit().putStringSet(sharedKey, items).apply()
+
+        println("lista final de getFavorite: ${getFavoritesItems()}")
+
     }
 }

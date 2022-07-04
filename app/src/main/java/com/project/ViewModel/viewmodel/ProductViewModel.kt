@@ -28,13 +28,11 @@ class ProductViewModel : ViewModel() {
     }
 
     fun verifyFavorites() {
-        val listFavorites = favoritePreferences.getFavoritesItems()
         itemModelList.value = itemModelList.value.apply {
             this?.forEach {
-                it.isFavorite = listFavorites.contains(it.id)
+                it.isFavorite = favoritePreferences.getFavoritesItems().contains(it.id)
             }
         }
-        println(_itemModelList.value)
     }
 
 }

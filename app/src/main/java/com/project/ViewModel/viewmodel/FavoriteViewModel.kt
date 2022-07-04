@@ -20,18 +20,16 @@ class FavoriteViewModel : ViewModel(){
         }
 
     fun getFavoritesItems() {
-        val listFavorites = favoritePreferences.getFavoritesItems()
+
         viewModelScope.launch {
-            _itemsFavoritesModelList.value = repository.getFavoritesItems(listFavorites)
+            _itemsFavoritesModelList.value = repository.getFavoritesItems(favoritePreferences.getFavoritesItems().toList())
         }
     }
 
-    fun verifyFavorites() {
-        val listFavorites = favoritePreferences.getFavoritesItems()
-        _itemsFavoritesModelList.value = _itemsFavoritesModelList.value.apply {
-            this?.forEach {
-                it.isFavorite = listFavorites.contains(it.id)
+    fun removeFavorites(id: String) {
+        favoritePreferences.removeFavoriteItem(id)
+        _itemsFavoritesModelList.value = _itemsFavoritesModelList.value?.filter {
+                it.id != id
             }
         }
-    }
 }
