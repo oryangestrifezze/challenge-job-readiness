@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/baseline_favorite_border_24.xml" value="0.157" />
         <entry key="app/src/main/res/drawable-v24/favorite_icon.xml" value="0.2525" />
+        <entry key="app/src/main/res/drawable-v24/progressBar.xml" value="0.2655" />
         <entry key="app/src/main/res/drawable/favorite_background.xml" value="0.286" />
         <entry key="app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.286" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.286" />
@@ -15,11 +16,11 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/favorite_item.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_favorite_list.xml" value="0.11080332409972299" />
+        <entry key="app/src/main/res/layout/fragment_favorite_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_item.xml" value="0.30833333333333335" />
         <entry key="app/src/main/res/layout/fragment_product_detail_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_product_item.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_product_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_product_list.xml" value="0.4126984126984127" />
         <entry key="app/src/main/res/layout/produtc_item.xml" value="0.1" />
       </map>
     </option>

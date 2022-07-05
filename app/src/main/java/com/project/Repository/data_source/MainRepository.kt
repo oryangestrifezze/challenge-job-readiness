@@ -10,8 +10,10 @@ import com.project.Repository.model.ItemModel
 class MainRepository {
 
     private val service: IGetServices = RetrofitServices.createGetService()
+    var isLoading: Boolean? = null
 
     suspend fun getCategory(search: String): List<ItemModel> {
+        isLoading = true
         var list: List<String>?
         var response: List<ItemModel> = emptyList()
         try {
@@ -21,12 +23,13 @@ class MainRepository {
                         ?.filter { it.type == "ITEM" }
                         ?.map { it.id }
                     response = getCategoryId(list).map { it.body }
+                    isLoading = false
                 }
         } catch (e: Exception) {
             Log.e("MainRepository", "getCategory() : $e")
+            isLoading = false
         }
         return response
-
     }
 
     suspend fun getFavoritesItems(list: List<String>?): List<ItemModel> {

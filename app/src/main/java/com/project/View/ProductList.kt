@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
@@ -30,7 +31,7 @@ class ProductList : Fragment() {
         super.onCreate(savedInstanceState)
         var searchView = binding.inputTextSearch
 
-        adapter = ProductAdapter({ adapterOnClick(it) })
+        adapter = ProductAdapter { adapterOnClick(it) }
 
         binding.recyclerViewList.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -39,7 +40,8 @@ class ProductList : Fragment() {
 
         viewmodel._itemModelList.observe(this) {
             adapter.listItems = it
-            binding.notFound.visibility = if (viewmodel._itemModelList.value.isNullOrEmpty()) View.VISIBLE else View.GONE
+            binding.textEmptyList.visibility = if (it.isNullOrEmpty()) View.VISIBLE else View.GONE
+            binding.progressBar.visibility = if (viewmodel.isLoading == true) View.VISIBLE else View.GONE
         }
 
         fun searchviewSetup() {

@@ -16,7 +16,6 @@ class RetrofitServices {
         private const val BASE_URL = "https://api.mercadolibre.com/"
 
         private fun getRetrofitInstance() : Retrofit {
-            val http = OkHttpClient.Builder()
             if(!Companion::INSTANCE.isInitialized) {
                 INSTANCE = Retrofit.Builder()
                     .baseUrl(BASE_URL)

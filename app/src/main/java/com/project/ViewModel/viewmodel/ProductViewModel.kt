@@ -14,6 +14,7 @@ class ProductViewModel : ViewModel() {
 
     val repository = MainRepository()
 
+    val isLoading = repository.isLoading
 
     private var itemModelList: MutableLiveData<List<ItemModel>> = MutableLiveData(emptyList())
     val _itemModelList: LiveData<List<ItemModel>>
@@ -22,6 +23,7 @@ class ProductViewModel : ViewModel() {
         }
 
     fun getCategory(search: String) {
+
         viewModelScope.launch {
             itemModelList.value = repository.getCategory(search)
             itemModelList.value.apply {
