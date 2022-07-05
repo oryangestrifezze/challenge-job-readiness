@@ -20,7 +20,6 @@ class FavoriteViewModel : ViewModel(){
         }
 
     fun getFavoritesItems() {
-
         viewModelScope.launch {
             _itemsFavoritesModelList.value = repository.getFavoritesItems(favoritePreferences.getFavoritesItems().toList())
         }

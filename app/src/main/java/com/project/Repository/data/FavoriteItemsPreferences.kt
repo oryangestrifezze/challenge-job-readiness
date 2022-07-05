@@ -18,13 +18,9 @@ class FavoriteItemsPreferences(context: Context) {
 
     fun removeFavoriteItem(id : String) {
         val items = getFavoritesItems()
-        println("lista antes de remover: $items")
         items.remove(id)
-        println("lista depois de remover: $items")
-
         storage.edit().putStringSet(sharedKey, items).apply()
 
-        println("lista final de getFavorite: ${getFavoritesItems()}")
 
     }
 }

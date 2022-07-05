@@ -1,7 +1,8 @@
 package com.project.Repository.data_source
 
-import com.project.Repository.model.CategoryId
+import com.project.Repository.model.CategoryIdResponse
 import com.project.Repository.model.CategoryResponse
+import com.project.Repository.model.DescriptionItemResponse
 import com.project.Repository.model.HighlightsResponse
 
 import retrofit2.http.GET
@@ -17,5 +18,8 @@ interface IGetServices {
     suspend fun fetchHighlightsResponse(@Path("id") idCategory : String) : HighlightsResponse
 
     @GET("items")
-    suspend fun fetchIdCategory(@Query("ids") items : String) : List<CategoryId>
+    suspend fun fetchIdCategory(@Query("ids") items : String) : List<CategoryIdResponse>
+
+    @GET("items/{id}/description")
+    suspend fun fetchDescriptionItem(@Path("id") itemId: String) : DescriptionItemResponse
 }

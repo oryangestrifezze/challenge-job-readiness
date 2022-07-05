@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,138 +7,166 @@
     android:padding="1dp"
     tools:context=".View.ProductDetailItem">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:background="@drawable/image_detail_background"
-        android:src="@drawable/image_mock_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="R$ 292,00"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image" />
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:background="@drawable/image_detail_background"
+            android:src="@drawable/image_mock_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/forma_pagamento"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Ver os meios de pagamento"
-        android:textColor="@color/blue_meli"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/price"
-        tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="R$ 292,00"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image" />
 
-    <TextView
-        android:id="@+id/estoque_disponvel"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Estoque Disponivel"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/forma_pagamento" />
-    <TextView
-        android:id="@+id/itens_disponiveis"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:text="Quantidade"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.165"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/estoque_disponvel"
-        tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/forma_pagamento"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Ver os meios de pagamento"
+            android:textColor="@color/blue_meli"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price"
+            tools:ignore="HardcodedText" />
 
-    <TextView
-        android:id="@+id/numero"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:padding="10dp"
-        android:text="1"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.182"
-        app:layout_constraintStart_toEndOf="@+id/itens_disponiveis"
-        app:layout_constraintTop_toBottomOf="@+id/estoque_disponvel"
-        tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/estoque_disponvel"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Estoque Disponivel"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forma_pagamento" />
 
-    <TextView
-        android:id="@+id/quantidade_disponivel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:padding="10dp"
-        android:text="326 disponíveis"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/numero"
-        app:layout_constraintTop_toBottomOf="@+id/estoque_disponvel"
-        tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/itens_disponiveis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Quantidade"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.165"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/estoque_disponvel"
+            tools:ignore="HardcodedText" />
 
-    <Button
-        android:id="@+id/button_comprar"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:text="Comprar agora"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="@color/blue_meli"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/quantidade_disponivel" />
-    <Button
-        android:id="@+id/Adicionar_carrinho"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:text="Adicionar ao carrinho"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="@color/grey_meli"
-        android:textColor="@color/blue_meli"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_comprar" />
+        <TextView
+            android:id="@+id/numero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="10dp"
+            android:text="1"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.182"
+            app:layout_constraintStart_toEndOf="@+id/itens_disponiveis"
+            app:layout_constraintTop_toBottomOf="@+id/estoque_disponvel"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/quantidade_disponivel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:padding="10dp"
+            android:text="326 disponíveis"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/numero"
+            app:layout_constraintTop_toBottomOf="@+id/estoque_disponvel"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/button_comprar"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/blue_meli"
+            android:text="Comprar agora"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quantidade_disponivel" />
+
+        <Button
+            android:id="@+id/Adicionar_carrinho"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/grey_meli"
+            android:text="Adicionar ao carrinho"
+            android:textColor="@color/blue_meli"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_comprar" />
 
 
+        <ImageView
+            android:id="@+id/favorite_item"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/favorite_icon"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Adicionar_carrinho"
+            app:tint="@color/blue_meli" />
 
-    <ImageView
-        android:id="@+id/favorite_item"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="60dp"
-        android:src="@drawable/favorite_icon"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Adicionar_carrinho"
-        app:tint="@color/blue_meli" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:text="Adicionar aos favoritos"
+            android:textColor="@color/blue_meli"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Adicionar_carrinho" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:paddingTop="5dp"
-        android:paddingLeft="15dp"
-        android:text="Adicionar aos favoritos"
-        android:textColor="@color/blue_meli"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Adicionar_carrinho" />
+        <TextView
+            android:id="@+id/titleDescription"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Descrição"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textDescription"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Texto de descrição do Produto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleDescription" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 

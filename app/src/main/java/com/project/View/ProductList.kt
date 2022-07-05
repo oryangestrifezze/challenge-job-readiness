@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.Repository.model.ItemModel
 import com.project.ViewModel.adapters.ProductAdapter
 import com.project.R
-import com.project.Repository.data.FavoriteApplication
 import com.project.ViewModel.viewmodel.ProductViewModel
 import com.project.databinding.FragmentProductListBinding
 
@@ -50,7 +49,6 @@ class ProductList : Fragment() {
 
                 override fun onQueryTextSubmit(query: String): Boolean {
                     viewmodel.getCategory(query)
-
                     return false
                 }
 
@@ -91,7 +89,9 @@ class ProductList : Fragment() {
                 "price" to item.price,
                 "image" to item.secure_thumbnail,
                 "available_quantity" to item.available_quantity,
-                "isFavorite" to item.isFavorite
+                "isFavorite" to item.isFavorite,
+                "description" to item.description
+
             )
         )
     }

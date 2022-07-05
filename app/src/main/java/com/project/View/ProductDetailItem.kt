@@ -25,9 +25,11 @@ class ProductDetailItem : Fragment() {
 
             binding.price.text = "R$ ${bundle.getString("price")}"
             binding.quantidadeDisponivel.text = bundle.getString("available_quantity")
+            binding.textDescription.text = bundle.getString("description").toString()
 
             Picasso.Builder(binding.root.context).build()
                 .load(bundle.getString("image")).into(binding.image)
+
             if (favoritePreferences.getFavoritesItems()
                     .contains(id)
             ) binding.favoriteItem.setImageResource(R.drawable.full_favorite_icon)

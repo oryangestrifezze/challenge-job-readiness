@@ -1,7 +1,8 @@
 package com.project.Repository.data_source
 
 import android.util.Log
-import com.project.Repository.model.CategoryId
+import com.project.Repository.model.CategoryIdResponse
+import com.project.Repository.model.DescriptionItemResponse
 import com.project.Repository.model.HighlightsResponse
 import com.project.Repository.model.ItemModel
 
@@ -48,12 +49,22 @@ class MainRepository {
         return response
     }
 
-    private suspend fun getCategoryId(items: List<String>?): List<CategoryId> {
-        var response: List<CategoryId> = emptyList()
+    private suspend fun getCategoryId(items: List<String>?): List<CategoryIdResponse> {
+        var response: List<CategoryIdResponse> = emptyList()
         try {
             response = service.fetchIdCategory(items?.joinToString()!!)
         } catch (e: Exception) {
-            Log.e("MainRepository", "getCategoryId() : ${e.toString()}")
+            Log.e("MainRepository", "getCategoryId() : $e")
+        }
+        return response
+    }
+
+    suspend fun getDescriptionItem(id: String): DescriptionItemResponse {
+        var response = DescriptionItemResponse(null)
+        try {
+            response = service.fetchDescriptionItem(id)
+        } catch (e: Exception) {
+            Log.e("MainRepository", "getDescriptionItem: $e")
         }
         return response
     }

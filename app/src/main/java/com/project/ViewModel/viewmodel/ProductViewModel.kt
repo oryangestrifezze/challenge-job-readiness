@@ -24,6 +24,11 @@ class ProductViewModel : ViewModel() {
     fun getCategory(search: String) {
         viewModelScope.launch {
             itemModelList.value = repository.getCategory(search)
+            itemModelList.value.apply {
+                this?.forEach {
+                    it.description = repository.getDescriptionItem(it.id).plain_text
+                }
+            }
         }
     }
 
