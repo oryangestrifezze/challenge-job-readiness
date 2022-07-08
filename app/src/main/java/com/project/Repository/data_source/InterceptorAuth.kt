@@ -5,7 +5,7 @@ import okhttp3.Response
 
 class InterceptorAuth : Interceptor {
 
-    private val accessToken = "Bearer APP_USR-2200225733175765-070610-0c6adb293ab1fdf56aa78b7bba9333f7-795944208"
+    //private val accessToken = "Bearer APP_USR-2200225733175765-070708-0c331bfb5c7568c7625d8db818ab2059-795944208"
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
